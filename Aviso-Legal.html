@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aviso Legal — MAC IA AGENT</title>
+  <title>Aviso Legal | MAC IA AGENT</title>
   <meta name="description" content="Aviso legal del sitio web." />
   <style>
     :root{
-      --bg0:#04050a; --bg1:#070812;
-      --text:#f4f7ff; --muted:#a9b1c6;
-      --accent:#4fc3ff; --accent2:#bfe9ff;
+      --bg0:#06121d;--bg1:#0b1c2a;
+      --text:#f4f7ff;--muted:#a9b1c6;
+      --accent-rgb:76,201,240;--accent2-rgb:189,239,255;
       --line: rgba(255,255,255,.10);
       --r28:28px; --max: 980px;
     }
@@ -19,12 +19,12 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
-        radial-gradient(1200px 720px at 78% -10%, rgba(79,195,255,.18), transparent 60%),
-        radial-gradient(1000px 600px at 10% 10%, rgba(191,233,255,.10), transparent 55%),
+        radial-gradient(1200px 720px at 78% -10%, rgba(var(--accent-rgb), .18), transparent 60%),
+        radial-gradient(1000px 600px at 10% 10%, rgba(var(--accent2-rgb), .10), transparent 55%),
         linear-gradient(180deg, var(--bg0), var(--bg1) 55%, #03040a);
       padding: 48px 0;
     }
-    a{color:var(--accent2); text-decoration:none}
+    a{color:rgba(var(--accent2-rgb), .95); text-decoration:none}
     .container{width:min(var(--max), 92vw); margin:0 auto}
     .card{
       border-radius: var(--r28);
@@ -39,9 +39,10 @@
     ul{margin:8px 0 0; padding-left: 18px}
     .back{
       display:inline-block; margin-top: 16px;
-      border:1px solid rgba(79,195,255,.35);
+      border:1px solid rgba(var(--accent-rgb), .35);
       padding:10px 14px; border-radius:999px;
       color:var(--text);
+      background: rgba(var(--accent-rgb), .08);
     }
   </style>
 </head>
