@@ -196,7 +196,6 @@
       color:#06121d;
       font-weight:900;
     }
-    /* subtle shine */
     .btn-primary::after{
       content:"";
       position:absolute; inset:-60%;
@@ -215,6 +214,55 @@
       border-color: rgba(76,201,240,.25);
     }
 
+    /* ✅ Mini botón en portada */
+    .hero-chips{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .mini-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border: 1px solid rgba(76,201,240,.30);
+      background: rgba(76,201,240,.10);
+      color: rgba(244,247,255,.92);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing:.35px;
+    }
+    .mini-implantes{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      border: 1px solid rgba(76,201,240,.30);
+      background: rgba(255,255,255,.03);
+      color: rgba(244,247,255,.92);
+      transition: .22s var(--ease);
+      position:relative;
+      overflow:hidden;
+    }
+    .mini-implantes:hover{
+      transform: translateY(-1px);
+      border-color: rgba(76,201,240,.50);
+      background: rgba(76,201,240,.10);
+      box-shadow: 0 18px 70px rgba(0,0,0,.45);
+    }
+    .mini-implantes .tag{
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(189,239,255,.35);
+      background: rgba(189,239,255,.08);
+      color: rgba(244,247,255,.92);
+      letter-spacing:.2px;
+    }
+
     /* hero */
     main{ position:relative; z-index:1; }
     .hero{ padding: 64px 0 24px; }
@@ -227,16 +275,6 @@
 
     .hero-inner{ position:relative; padding: 28px; }
 
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      border: 1px solid rgba(76,201,240,.30);
-      background: rgba(76,201,240,.10);
-      color: rgba(244,247,255,.92);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      letter-spacing:.35px;
-    }
     .dot{
       width:8px; height:8px; border-radius:999px;
       background: var(--accent);
@@ -526,7 +564,6 @@
         <nav aria-label="Navegación">
           <ul>
             <li><a href="#contenido">Sistema</a></li>
-            <!-- ✅ NUEVO: enlace a implantes -->
             <li><a href="implantes.html">Implantes (High-Ticket)</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#quienes">Quiénes somos</a></li>
@@ -552,7 +589,16 @@
           <div class="gframe">
             <div class="inside">
               <div class="hero-inner">
-                <div class="pill fade-in"><span class="dot"></span> Implantes dentales · IA orientada a conversión</div>
+                <!-- ✅ PORTADA: pill + mini botón -->
+                <div class="hero-chips fade-in">
+                  <span class="mini-pill"><span class="dot"></span> Implantes dentales · IA orientada a conversión</span>
+
+                  <a class="mini-implantes" href="implantes.html" aria-label="Ver landing de implantes">
+                    <span class="tag">High-Ticket</span>
+                    Ver Implantes
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
 
                 <h1 class="hero-title gradient fade-delay">MAC IA AGENT</h1>
 
@@ -564,7 +610,6 @@
                 <div class="cta-row reveal">
                   <a class="btn btn-primary" href="#contacto">Quiero más pacientes de implantes</a>
                   <a class="btn" href="#contenido">Ver el sistema</a>
-                  <!-- ✅ NUEVO: CTA a la landing high-ticket -->
                   <a class="btn btn-ghost" href="implantes.html">Ver versión Implantes (High-Ticket)</a>
                   <a class="btn btn-ghost" href="https://wa.me/34663432481" target="_blank" rel="noopener">WhatsApp directo</a>
                 </div>
@@ -908,7 +953,6 @@
 
     function step(){
       ctx.clearRect(0,0,w,h);
-      // particles
       for (const p of pts){
         p.x += p.vx; p.y += p.vy;
         if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
@@ -919,7 +963,6 @@
         ctx.fillStyle = `rgba(76,201,240,${p.a})`;
         ctx.fill();
       }
-      // links
       for (let i=0;i<N;i++){
         for (let j=i+1;j<N;j++){
           const a = pts[i], b = pts[j];
