@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Política de Cookies | MAC IA AGENT</title>
+  <meta name="description" content="Política de Cookies de MAC IA AGENT." />
+  <style>
+    :root{
+      --bg0:#04050a;
+      --bg1:#070812;
+      --panel: rgba(12,14,22,.62);
+      --line: rgba(255,255,255,.10);
+      --text:#f4f7ff;
+      --muted:#a9b1c6;
+
+      --accent:#61d4ff;   /* celeste */
+      --accent2:#9ae7ff;  /* celeste claro */
+
+      --shadow: 0 30px 120px rgba(0,0,0,.62);
+      --r16:16px;
+      --r22:22px;
+      --r28:28px;
+      --max: 980px;
+      --ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 720px at 78% -10%, rgba(97,212,255,.18), transparent 60%),
+        radial-gradient(1000px 600px at 10% 10%, rgba(154,231,255,.10), transparent 55%),
+        radial-gradient(900px 520px at 60% 120%, rgba(97,212,255,.10), transparent 65%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 55%, #03040a);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{width:min(var(--max), 92vw); margin:0 auto}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(4,5,10,.60);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 260px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius: 16px;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(154,231,255,.95), transparent 60%),
+        radial-gradient(18px 18px at 70% 70%, rgba(97,212,255,.92), transparent 62%),
+        linear-gradient(135deg, rgba(97,212,255,.35), rgba(255,255,255,.06));
+      border:1px solid rgba(97,212,255,.28);
+      box-shadow: 0 20px 70px rgba(0,0,0,.55);
+    }
+    .brand strong{letter-spacing:.8px}
+    .brand small{display:block; margin-top:2px; color:var(--muted); font-size:12px; letter-spacing:.25px}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-size: 14px;
+      cursor:pointer;
+      transition: .22s var(--ease);
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      border-color: rgba(97,212,255,.35);
+      box-shadow: 0 22px 90px rgba(0,0,0,.55);
+      background: rgba(255,255,255,.05);
+    }
+    .btn-primary{
+      border-color: rgba(97,212,255,.45);
+      background: linear-gradient(90deg, rgba(97,212,255,.98), rgba(154,231,255,.88));
+      color:#061019;
+      font-weight:900;
+    }
+    .btn-ghost{
+      background: transparent;
+      border-color: rgba(97,212,255,.25);
+    }
+
+    main{padding: 42px 0 26px;}
+    .panel{
+      border-radius: var(--r28);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(12,14,22,.70);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .p{ padding: 22px; }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -0.8px;
+    }
+    .lead{
+      margin:0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    h2{
+      margin: 18px 0 8px;
+      font-size: 18px;
+      letter-spacing:.2px;
+    }
+    p, li{
+      color: rgba(244,247,255,.88);
+      line-height: 1.75;
+      font-size: 14.5px;
+    }
+    ul{margin: 8px 0 0; padding-left: 18px;}
+    .note{
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: var(--r22);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    footer{
+      padding: 22px 0 40px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(4,5,10,.35);
+      margin-top: 22px;
+    }
+    .foot{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html" aria-label="Volver al inicio">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <strong class="mono">MAC IA AGENT</strong>
+            <small>Tech-Luxury · IA avanzada · Crecimiento</small>
+          </div>
+        </a>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a class="btn btn-ghost" href="privacidad.html">Privacidad</a>
+          <a class="btn btn-ghost" href="aviso-legal.html">Aviso legal</a>
+          <a class="btn btn-primary" href="index.html#contacto">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="panel">
+        <div class="p">
+          <h1>Política de Cookies</h1>
+          <p class="lead">
+            En esta web utilizamos cookies para mejorar la experiencia de navegación, analizar el uso del sitio y, en su caso, medir campañas.
+            A continuación te explicamos qué son, qué tipos usamos y cómo puedes gestionarlas.
+          </p>
+
+          <h2>¿Qué son las cookies?</h2>
+          <p>
+            Las cookies son pequeños archivos que se descargan en tu dispositivo cuando visitas una web.
+            Permiten, entre otras cosas, reconocer al usuario, obtener información sobre sus hábitos de navegación
+            o personalizar la forma en que se muestra el contenido.
+          </p>
+
+          <h2>Tipos de cookies que podemos utilizar</h2>
+          <ul>
+            <li><b>Cookies técnicas (necesarias):</b> permiten la navegación y el uso de funciones básicas del sitio.</li>
+            <li><b>Cookies de análisis:</b> ayudan a medir y analizar el comportamiento de los usuarios en la web (p. ej., páginas más visitadas).</li>
+            <li><b>Cookies de personalización:</b> recuerdan preferencias (idioma, configuración).</li>
+            <li><b>Cookies de marketing:</b> permiten medir campañas o mostrar publicidad relevante (solo si se activan).</li>
+          </ul>
+
+          <h2>Cookies de terceros</h2>
+          <p>
+            En algunos casos, pueden utilizarse servicios de terceros (por ejemplo, herramientas de analítica).
+            Estos terceros pueden instalar cookies propias para prestar sus servicios.
+          </p>
+
+          <h2>¿Cómo puedo gestionar o desactivar las cookies?</h2>
+          <p>
+            Puedes permitir, bloquear o eliminar las cookies instaladas en tu dispositivo mediante la configuración del navegador.
+            Ten en cuenta que, si desactivas algunas cookies, el sitio podría no funcionar correctamente.
+          </p>
+
+          <ul>
+            <li><b>Chrome:</b> Configuración → Privacidad y seguridad → Cookies y otros datos de sitios</li>
+            <li><b>Safari:</b> Preferencias → Privacidad</li>
+            <li><b>Firefox:</b> Ajustes → Privacidad y seguridad</li>
+            <li><b>Edge:</b> Configuración → Cookies y permisos del sitio</li>
+          </ul>
+
+          <h2>Actualizaciones</h2>
+          <p>
+            Esta política puede actualizarse por cambios legales o técnicos. Te recomendamos revisarla periódicamente.
+          </p>
+
+          <div class="note">
+            <b>Nota:</b> Si más adelante activas Google Analytics u otra herramienta, dímelo y te adapto esta página con el detalle exacto
+            (cookies concretas, duración y proveedor) para que quede perfecta.
+          </div>
+
+          <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-ghost" href="index.html">Volver a la web</a>
+            <a class="btn" href="privacidad.html">Política de Privacidad</a>
+            <a class="btn" href="aviso-legal.html">Aviso legal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <span id="year"></span> <span class="mono">MAC IA AGENT</span></div>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a class="btn btn-ghost" href="cookies.html">Cookies</a>
+          <a class="btn btn-ghost" href="privacidad.html">Privacidad</a>
+          <a class="btn btn-ghost" href="aviso-legal.html">Aviso legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
