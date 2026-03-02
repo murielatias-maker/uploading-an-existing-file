@@ -1,987 +1,241 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAC IA AGENT — IA & Automatización Tech-Luxury para Implantes</title>
-  <meta name="description" content="IA avanzada + automatización para clínicas de implantes. Respuesta 24/7, cualificación, agenda y seguimiento para crecer." />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>MAC IA AGENT — IA & Automatización</title>
 
-  <style>
-    :root{
-      --bg0:#04050a;
-      --bg1:#070812;
-      --panel: rgba(12,14,22,.62);
-      --panel2: rgba(12,14,22,.86);
-      --card: rgba(255,255,255,.045);
-      --line: rgba(255,255,255,.10);
+<style>
+:root{
+--bg0:#04050a;
+--bg1:#070812;
+--text:#f4f7ff;
+--muted:#a9b1c6;
+--accent:#4cc9f0;
+--line:rgba(255,255,255,.10);
+}
 
-      --text:#f4f7ff;
-      --muted:#a9b1c6;
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:system-ui;
+color:var(--text);
+background:
+radial-gradient(1000px 600px at 80% -10%, rgba(76,201,240,.2), transparent 60%),
+linear-gradient(180deg,var(--bg0),var(--bg1));
+}
 
-      /* Celeste premium */
-      --accent:#4cc9f0;
-      --accent2:#bdefff;
+.container{width:min(1180px,92vw);margin:auto}
 
-      --shadow: 0 30px 120px rgba(0,0,0,.62);
-      --ring: 0 0 0 8px rgba(76,201,240,.14);
+header{
+position:sticky;top:0;z-index:50;
+background:rgba(4,5,10,.6);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--line);
+}
 
-      --r16:16px;
-      --r22:22px;
-      --r28:28px;
+.nav{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:14px 0;
+}
 
-      --max: 1180px;
-      --ease: cubic-bezier(.2,.9,.2,1);
-    }
+.brand{
+display:flex;
+gap:12px;
+align-items:center;
+}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(1200px 720px at 78% -10%, rgba(76,201,240,.22), transparent 60%),
-        radial-gradient(1000px 600px at 10% 10%, rgba(189,239,255,.10), transparent 55%),
-        radial-gradient(900px 520px at 60% 120%, rgba(76,201,240,.08), transparent 65%),
-        linear-gradient(180deg, var(--bg0), var(--bg1) 55%, #03040a);
-      overflow-x:hidden;
-    }
+.logo{
+width:40px;height:40px;border-radius:50%;
+background:radial-gradient(circle at 30% 30%,#bdefff,#4cc9f0);
+}
 
-    a{color:inherit; text-decoration:none}
-    .container{width:min(var(--max), 92vw); margin:0 auto}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+nav ul{
+display:flex;
+gap:22px;
+list-style:none;
+margin:0;
+padding:0;
+}
 
-    /* Premium tech background */
-    .grid-bg{
-      position:fixed; inset:0; pointer-events:none; opacity:.22;
-      background-image:
-        linear-gradient(to right, rgba(76,201,240,.10) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(76,201,240,.10) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(780px 460px at 55% 10%, black 30%, transparent 78%);
-    }
-    .glow{
-      position:fixed; inset:-180px; pointer-events:none;
-      background:
-        radial-gradient(560px 380px at 18% 18%, rgba(76,201,240,.14), transparent 64%),
-        radial-gradient(620px 420px at 82% 18%, rgba(189,239,255,.10), transparent 66%),
-        radial-gradient(720px 520px at 66% 78%, rgba(76,201,240,.10), transparent 68%);
-      filter: blur(14px);
-      opacity:.95;
-      animation: floatGlow 14s var(--ease) infinite alternate;
-    }
-    @keyframes floatGlow{
-      from{ transform: translate3d(0,0,0) scale(1); }
-      to{ transform: translate3d(24px,-14px,0) scale(1.04); }
-    }
+nav a{
+color:var(--muted);
+text-decoration:none;
+font-size:14px;
+}
 
-    /* particles */
-    canvas#fx{
-      position:fixed;
-      inset:0;
-      z-index:0;
-      pointer-events:none;
-      opacity:.22;
-    }
+nav a:hover{color:#fff}
 
-    /* top nav */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(4,5,10,.60);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 14px 0;
-      gap: 14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 260px;
-    }
-    .logo{
-      width:42px; height:42px; border-radius: 16px;
-      background:
-        radial-gradient(12px 12px at 30% 30%, rgba(189,239,255,.95), transparent 60%),
-        radial-gradient(18px 18px at 70% 70%, rgba(76,201,240,.92), transparent 62%),
-        linear-gradient(135deg, rgba(76,201,240,.42), rgba(255,255,255,.06));
-      border:1px solid rgba(76,201,240,.28);
-      box-shadow: 0 20px 70px rgba(0,0,0,.55);
-    }
-    .brand strong{letter-spacing:.8px}
-    .brand small{display:block; margin-top:2px; color:var(--muted); font-size:12px; letter-spacing:.25px}
+.nav-cta{
+display:flex;
+gap:12px;
+align-items:center;
+}
 
-    nav ul{
-      list-style:none; display:flex; gap:18px;
-      margin:0; padding:0; align-items:center;
-    }
-    nav a{
-      color: var(--muted);
-      font-size: 14px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: .22s var(--ease);
-    }
-    nav a:hover{
-      color: var(--text);
-      border-color: rgba(76,201,240,.28);
-      background: rgba(76,201,240,.10);
-      transform: translateY(-1px);
-    }
-    .nav-cta{
-      display:flex; gap:10px; align-items:center;
-      min-width: 260px; justify-content:flex-end;
-    }
+/* 🔵 Icono redondo implantes */
+.iconbtn{
+width:42px;
+height:42px;
+display:grid;
+place-items:center;
+border-radius:50%;
+border:1px solid rgba(76,201,240,.4);
+background:rgba(255,255,255,.03);
+transition:.2s;
+}
+.iconbtn:hover{
+background:rgba(76,201,240,.15);
+transform:translateY(-2px);
+}
+.iconbtn svg{
+width:20px;height:20px;
+stroke:white;
+stroke-width:2;
+fill:none;
+}
 
-    /* gradient border wrapper */
-    .gframe{
-      position:relative;
-      border-radius: var(--r28);
-      padding: 1px;
-      background: linear-gradient(135deg,
-        rgba(76,201,240,.55),
-        rgba(255,255,255,.08) 35%,
-        rgba(189,239,255,.42)
-      );
-      box-shadow: var(--shadow);
-    }
-    .gframe > .inside{
-      border-radius: calc(var(--r28) - 1px);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.08);
-      overflow:hidden;
-      position:relative;
-    }
-    .gframe > .inside::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(560px 260px at 18% 10%, rgba(76,201,240,.22), transparent 62%),
-        radial-gradient(420px 220px at 86% 30%, rgba(189,239,255,.12), transparent 66%);
-      pointer-events:none;
-      opacity:.95;
-    }
+.btn{
+padding:10px 16px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.2);
+background:rgba(255,255,255,.05);
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+.btn-primary{
+background:linear-gradient(90deg,#4cc9f0,#bdefff);
+color:#000;
+font-weight:600;
+border:none;
+}
 
-    /* buttons */
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding: 11px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-      font-size: 14px;
-      cursor:pointer;
-      transition: .22s var(--ease);
-      white-space:nowrap;
-      transform: translateZ(0);
-      position:relative;
-      overflow:hidden;
-    }
-    .btn:hover{
-      transform: translateY(-2px);
-      border-color: rgba(76,201,240,.35);
-      box-shadow: 0 22px 90px rgba(0,0,0,.55);
-      background: rgba(255,255,255,.05);
-    }
-    .btn:active{ transform: translateY(-1px) scale(.99); }
+.hero{
+padding:80px 0;
+text-align:center;
+}
 
-    .btn-primary{
-      border-color: rgba(76,201,240,.45);
-      background: linear-gradient(90deg, rgba(76,201,240,.98), rgba(189,239,255,.88));
-      color:#06121d;
-      font-weight:900;
-    }
-    .btn-primary::after{
-      content:"";
-      position:absolute; inset:-60%;
-      background: radial-gradient(180px 120px at 30% 45%, rgba(255,255,255,.35), transparent 62%);
-      transform: translateX(-50%) rotate(10deg);
-      opacity: 0;
-      transition: .35s var(--ease);
-      pointer-events:none;
-    }
-    .btn-primary:hover::after{
-      transform: translateX(10%) rotate(10deg);
-      opacity: .8;
-    }
-    .btn-ghost{
-      background: transparent;
-      border-color: rgba(76,201,240,.25);
-    }
+h1{
+font-size:60px;
+margin:0 0 20px;
+background:linear-gradient(90deg,#fff,#bdefff,#4cc9f0);
+-webkit-background-clip:text;
+color:transparent;
+}
 
-    /* ✅ Mini botón en portada */
-    .hero-chips{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-    .mini-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      border: 1px solid rgba(76,201,240,.30);
-      background: rgba(76,201,240,.10);
-      color: rgba(244,247,255,.92);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      letter-spacing:.35px;
-    }
-    .mini-implantes{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 12.5px;
-      border: 1px solid rgba(76,201,240,.30);
-      background: rgba(255,255,255,.03);
-      color: rgba(244,247,255,.92);
-      transition: .22s var(--ease);
-      position:relative;
-      overflow:hidden;
-    }
-    .mini-implantes:hover{
-      transform: translateY(-1px);
-      border-color: rgba(76,201,240,.50);
-      background: rgba(76,201,240,.10);
-      box-shadow: 0 18px 70px rgba(0,0,0,.45);
-    }
-    .mini-implantes .tag{
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(189,239,255,.35);
-      background: rgba(189,239,255,.08);
-      color: rgba(244,247,255,.92);
-      letter-spacing:.2px;
-    }
+.lead{
+color:var(--muted);
+max-width:700px;
+margin:auto;
+}
 
-    /* hero */
-    main{ position:relative; z-index:1; }
-    .hero{ padding: 64px 0 24px; }
-    .hero-wrap{
-      display:grid;
-      grid-template-columns: 1.12fr .88fr;
-      gap: 16px;
-      align-items:stretch;
-    }
+section{
+padding:80px 0;
+}
 
-    .hero-inner{ position:relative; padding: 28px; }
-
-    .dot{
-      width:8px; height:8px; border-radius:999px;
-      background: var(--accent);
-      box-shadow: 0 0 18px rgba(76,201,240,.75);
-      animation: pulse 1.9s var(--ease) infinite;
-    }
-    @keyframes pulse{
-      0%,100%{ transform: scale(1); opacity:1; }
-      50%{ transform: scale(1.25); opacity:.75; }
-    }
-
-    .hero-title{
-      margin: 16px 0 10px;
-      font-size: clamp(50px, 5.8vw, 86px);
-      line-height: 1.01;
-      letter-spacing: -1.9px;
-    }
-    .gradient{
-      background: linear-gradient(90deg, #ffffff, rgba(255,255,255,.72), rgba(189,239,255,.98), rgba(76,201,240,.98));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color: transparent;
-      filter: drop-shadow(0 18px 60px rgba(0,0,0,.55));
-    }
-    .lead{
-      margin: 0 0 12px;
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--muted);
-      max-width: 64ch;
-    }
-    .cta-row{
-      display:flex; gap:12px; flex-wrap:wrap;
-      margin-top: 16px;
-      align-items:center;
-    }
-    .trust{
-      margin-top: 12px;
-      color: rgba(244,247,255,.84);
-      font-size: 12.5px;
-      line-height:1.55;
-    }
-    .trust .mono{ color: rgba(255,255,255,.62); }
-
-    .kpi-row{
-      margin-top: 16px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .kpi{
-      border-radius: var(--r22);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      padding: 14px;
-      transition:.22s var(--ease);
-      position:relative;
-      overflow:hidden;
-    }
-    .kpi::before{
-      content:"";
-      position:absolute; inset:-40%;
-      background: radial-gradient(220px 160px at 20% 30%, rgba(76,201,240,.14), transparent 62%);
-      opacity:.0;
-      transition:.3s var(--ease);
-      pointer-events:none;
-    }
-    .kpi:hover{transform: translateY(-2px); border-color: rgba(76,201,240,.28)}
-    .kpi:hover::before{ opacity: 1; transform: translateX(10px); }
-    .kpi .num{font-size: 22px; font-weight:950; letter-spacing:.2px}
-    .kpi .lbl{margin-top:4px; font-size: 12px; color: var(--muted)}
-
-    /* side panels */
-    .side{ display:flex; flex-direction:column; gap: 14px; }
-    .panel{
-      border-radius: var(--r28);
-      border: 1px solid rgba(255,255,255,.10);
-      background: var(--panel);
-      box-shadow: 0 22px 90px rgba(0,0,0,.52);
-      overflow:hidden;
-    }
-    .panel2{ background: var(--panel2); }
-    .p{ padding: 18px; }
-    .section-title{
-      display:flex; align-items:baseline; justify-content:space-between;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-    .section-title h2{ margin:0; font-size: 16px; letter-spacing:.2px; }
-    .hint{ color: var(--muted); font-size: 12px; }
-
-    .list{ margin:0; padding:0; list-style:none; display:grid; gap:10px; }
-    .li{
-      display:flex; gap:10px;
-      padding: 12px;
-      border-radius: var(--r22);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      transition:.22s var(--ease);
-    }
-    .li:hover{transform: translateY(-2px); border-color: rgba(76,201,240,.24)}
-    .badge{
-      width:30px; height:30px; border-radius: 12px;
-      display:grid; place-items:center;
-      border: 1px solid rgba(76,201,240,.35);
-      background: rgba(76,201,240,.10);
-      flex: 0 0 30px;
-    }
-    .li b{display:block; font-size: 13px}
-    .li span{display:block; color: var(--muted); font-size: 12.5px; line-height:1.45}
-
-    /* sections */
-    section{ scroll-margin-top: 92px; }
-    .block{ padding: 38px 0; }
-    .head{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap: 12px; flex-wrap:wrap;
-      margin-bottom: 14px;
-    }
-    .head h2{ margin:0; font-size: 26px; letter-spacing:.2px; }
-
-    .cards{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .card{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--r28);
-      padding: 16px;
-      transition: .22s var(--ease);
-      position:relative;
-      overflow:hidden;
-    }
-    .card::before{
-      content:"";
-      position:absolute; inset:-40%;
-      background: radial-gradient(240px 170px at 18% 30%, rgba(76,201,240,.14), transparent 62%);
-      opacity:.0;
-      transition: .3s var(--ease);
-      pointer-events:none;
-    }
-    .card:hover{
-      transform: translateY(-4px);
-      border-color: rgba(76,201,240,.30);
-      box-shadow: 0 26px 120px rgba(0,0,0,.55);
-    }
-    .card:hover::before{ opacity: 1; transform: translateX(12px); }
-    .card h3{margin:0 0 8px; font-size: 16px}
-    .card p{margin:0; color: var(--muted); font-size: 13.5px; line-height:1.65}
-
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      align-items:stretch;
-    }
-    .box{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--r28);
-      padding: 18px;
-      transition:.22s var(--ease);
-    }
-    .box:hover{ transform: translateY(-2px); border-color: rgba(76,201,240,.24); }
-    .box p{ margin: 10px 0 0; color: var(--muted); line-height:1.72; }
-
-    /* form */
-    form{ display:grid; gap: 10px; margin-top: 12px; }
-    .row{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
-    label{ font-size: 12px; color: rgba(244,247,255,.88); }
-    input, textarea{
-      width:100%;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(4,5,10,.45);
-      color: var(--text);
-      outline:none;
-      transition:.22s var(--ease);
-    }
-    input:focus, textarea:focus{
-      border-color: rgba(76,201,240,.55);
-      box-shadow: var(--ring);
-    }
-    textarea{ min-height: 120px; resize: vertical; }
-    .form-actions{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-
-    footer{
-      padding: 26px 0 40px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: var(--muted);
-      font-size: 13px;
-      background: rgba(4,5,10,.35);
-      margin-top: 26px;
-    }
-    .foot{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; flex-wrap:wrap;
-    }
-    .foot-links{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
-    .foot-links a{color:rgba(244,247,255,.88); border-bottom:1px solid rgba(255,255,255,.22); padding-bottom:2px}
-    .foot-links a:hover{color:#fff; border-bottom-color:rgba(76,201,240,.55)}
-
-    /* WhatsApp floating */
-    .wa-float{
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 60;
-      display:flex;
-      gap: 10px;
-      align-items:center;
-      padding: 12px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(76,201,240,.45);
-      background: rgba(4,5,10,.72);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 26px 120px rgba(0,0,0,.58);
-      transition: .22s var(--ease);
-    }
-    .wa-float:hover{ transform: translateY(-3px); box-shadow: 0 26px 120px rgba(0,0,0,.58), var(--ring); }
-    .wa-ico{
-      width:34px; height:34px; border-radius: 999px;
-      display:grid; place-items:center;
-      background: linear-gradient(90deg, rgba(76,201,240,.98), rgba(189,239,255,.88));
-      color:#06121d;
-      font-weight:950;
-      border: 1px solid rgba(76,201,240,.35);
-    }
-    .wa-text{ display:flex; flex-direction:column; line-height:1.1; }
-    .wa-text b{ font-size: 13px; }
-    .wa-text span{ font-size: 12px; color: var(--muted); }
-
-    /* Reveal & intro */
-    .reveal{
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity 820ms var(--ease), transform 820ms var(--ease);
-      will-change: opacity, transform;
-    }
-    .reveal.in{ opacity:1; transform: translateY(0); }
-
-    .fade-in{
-      opacity:0;
-      transform: translateY(16px);
-      animation: fadeUp 1.15s var(--ease) forwards;
-    }
-    .fade-delay{
-      opacity:0;
-      transform: translateY(16px);
-      animation: fadeUp 1.15s var(--ease) forwards;
-      animation-delay:.28s;
-    }
-    @keyframes fadeUp{ to{ opacity:1; transform: translateY(0); } }
-
-    @media (max-width: 980px){
-      nav ul{ display:none; }
-      .brand{ min-width:auto; }
-      .nav-cta{ min-width:auto; }
-      .hero-wrap{ grid-template-columns: 1fr; }
-      .cards{ grid-template-columns: 1fr; }
-      .split{ grid-template-columns: 1fr; }
-      .row{ grid-template-columns: 1fr; }
-      .kpi-row{ grid-template-columns: 1fr; }
-    }
-  </style>
+footer{
+padding:40px 0;
+border-top:1px solid var(--line);
+color:var(--muted);
+font-size:14px;
+text-align:center;
+}
+</style>
 </head>
 
 <body>
-  <div class="grid-bg" aria-hidden="true"></div>
-  <div class="glow" aria-hidden="true"></div>
-  <canvas id="fx"></canvas>
 
-  <header>
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="#top" aria-label="Ir al inicio">
-          <div class="logo" aria-hidden="true"></div>
-          <div>
-            <strong class="mono">MAC IA AGENT</strong>
-            <small>Tech-Luxury · IA avanzada · Crecimiento</small>
-          </div>
-        </a>
+<header>
+<div class="container">
+<div class="nav">
 
-        <nav aria-label="Navegación">
-          <ul>
-            <li><a href="#contenido">Sistema</a></li>
-            <li><a href="implantes.html">Implantes (High-Ticket)</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#quienes">Quiénes somos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </nav>
+<div class="brand">
+<div class="logo"></div>
+<div>
+<strong>MAC IA AGENT</strong><br>
+<small style="color:var(--muted)">Tech-Luxury · IA avanzada · Crecimiento</small>
+</div>
+</div>
 
-        <div class="nav-cta">
-          <a class="btn btn-ghost" href="implantes.html">Implantes</a>
-          <a class="btn btn-ghost" href="https://wa.me/34663432481" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn btn-primary" href="#contacto">Solicitar auditoría</a>
-        </div>
-      </div>
-    </div>
-  </header>
+<nav>
+<ul>
+<li><a href="#sistema">Sistema</a></li>
+<li><a href="#servicios">Servicios</a></li>
+<li><a href="#quienes">Quiénes somos</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</nav>
 
-  <main id="top">
-    <!-- PORTADA -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-wrap">
+<div class="nav-cta">
 
-          <div class="gframe">
-            <div class="inside">
-              <div class="hero-inner">
-                <!-- ✅ PORTADA: pill + mini botón -->
-                <div class="hero-chips fade-in">
-                  <span class="mini-pill"><span class="dot"></span> Implantes dentales · IA orientada a conversión</span>
+<!-- 🔵 SOLO ICONO -->
+<a class="iconbtn" href="implantes.html" title="Implantes">
+<svg viewBox="0 0 24 24">
+<path d="M8 4c-2 0-3 1.8-3 4 0 3 1.3 4.5 2.1 7.1.4 1.2.8 4.9 2.4 4.9 1.1 0 1.3-2.1 2.5-2.1S15 20 16.1 20c1.6 0 2-3.7 2.4-4.9C19.3 12.5 20.6 11 20.6 8c0-2.2-1-4-3-4-2 0-2.6 1-3.6 1S10 4 8 4z"/>
+</svg>
+</a>
 
-                  <a class="mini-implantes" href="implantes.html" aria-label="Ver landing de implantes">
-                    <span class="tag">High-Ticket</span>
-                    Ver Implantes
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                </div>
+<a class="btn" href="https://wa.me/34663432481" target="_blank">WhatsApp</a>
+<a class="btn btn-primary" href="#contacto">Solicitar auditoría</a>
 
-                <h1 class="hero-title gradient fade-delay">MAC IA AGENT</h1>
+</div>
+</div>
+</div>
+</header>
 
-                <p class="lead fade-delay" style="animation-delay:.40s">
-                  Construimos sistemas de <b>IA avanzada</b> y <b>automatización</b> para clínicas de implantes:
-                  respuesta 24/7, cualificación del caso, agenda y seguimiento para <b>convertir más primeras visitas</b>.
-                </p>
+<section class="hero">
+<div class="container">
+<h1>MAC IA AGENT</h1>
+<p class="lead">
+Automatización e IA avanzada para clínicas de implantes.
+Respuesta 24/7, cualificación inteligente y más primeras visitas.
+</p>
+</div>
+</section>
 
-                <div class="cta-row reveal">
-                  <a class="btn btn-primary" href="#contacto">Quiero más pacientes de implantes</a>
-                  <a class="btn" href="#contenido">Ver el sistema</a>
-                  <a class="btn btn-ghost" href="implantes.html">Ver versión Implantes (High-Ticket)</a>
-                  <a class="btn btn-ghost" href="https://wa.me/34663432481" target="_blank" rel="noopener">WhatsApp directo</a>
-                </div>
+<section id="sistema">
+<div class="container">
+<h2>Sistema</h2>
+<p class="lead">Captación, cualificación y seguimiento automatizado.</p>
+</div>
+</section>
 
-                <div class="trust reveal">
-                  <span class="mono">Entrega:</span> MVP en producción · <span class="mono">Integraciones:</span> n8n / Make / Zapier · <span class="mono">Foco:</span> conversión y crecimiento
-                </div>
+<section id="servicios">
+<div class="container">
+<h2>Servicios</h2>
+<p class="lead">Agente IA, automatización y landing de conversión.</p>
+</div>
+</section>
 
-                <div class="kpi-row reveal">
-                  <div class="kpi">
-                    <div class="num">+Conversión</div>
-                    <div class="lbl">Del lead a primera visita</div>
-                  </div>
-                  <div class="kpi">
-                    <div class="num">Menos fugas</div>
-                    <div class="lbl">Seguimiento automatizado</div>
-                  </div>
-                </div>
+<section id="quienes">
+<div class="container">
+<h2>Quiénes somos</h2>
+<p class="lead">Tecnología aplicada al crecimiento real.</p>
+</div>
+</section>
 
-              </div>
-            </div>
-          </div>
+<section id="contacto">
+<div class="container">
+<h2>Contacto</h2>
 
-          <div class="side">
-            <div class="panel reveal">
-              <div class="p">
-                <div class="section-title">
-                  <h2>Qué automatizamos</h2>
-                  <span class="hint">implantes</span>
-                </div>
+<form action="https://formspree.io/f/xpqjekek" method="POST" style="max-width:600px;margin:auto;display:flex;flex-direction:column;gap:12px">
+<input type="hidden" name="_redirect" value="https://mac-ia.es/gracias.html"/>
 
-                <ul class="list">
-                  <li class="li">
-                    <div class="badge">🦷</div>
-                    <div>
-                      <b>Primera consulta</b>
-                      <span>Información y siguiente paso claro, con tono clínico premium.</span>
-                    </div>
-                  </li>
-                  <li class="li">
-                    <div class="badge">📋</div>
-                    <div>
-                      <b>Cualificación del caso</b>
-                      <span>Urgencia, pérdida dental, disponibilidad y contexto para tu equipo.</span>
-                    </div>
-                  </li>
-                  <li class="li">
-                    <div class="badge">📅</div>
-                    <div>
-                      <b>Confirmación + recordatorios</b>
-                      <span>Reduce ausencias y huecos en agenda de valoración.</span>
-                    </div>
-                  </li>
-                  <li class="li">
-                    <div class="badge">💬</div>
-                    <div>
-                      <b>Seguimiento</b>
-                      <span>Recupera indecisos con mensajes medidos (sin “spam”).</span>
-                    </div>
-                  </li>
-                </ul>
+<input type="text" name="nombre" placeholder="Nombre" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="mensaje" placeholder="Mensaje" required></textarea>
 
-                <div class="cta-row" style="margin-top:12px;">
-                  <a class="btn btn-primary" href="#contacto">Solicitar propuesta</a>
-                  <a class="btn btn-ghost" href="implantes.html">Implantes (High-Ticket)</a>
-                </div>
-              </div>
-            </div>
+<button class="btn btn-primary" type="submit">Enviar</button>
+</form>
 
-            <div class="panel panel2 reveal">
-              <div class="p">
-                <div class="section-title">
-                  <h2>Diagnóstico express</h2>
-                  <span class="hint">gratuito</span>
-                </div>
-                <p style="margin:0; color:var(--muted); line-height:1.7; font-size:13.5px;">
-                  Te devolvemos un plan claro: qué automatizar, cómo capturar leads de implantes y cómo aumentar primeras visitas
-                  sin sobrecargar recepción.
-                </p>
-                <div class="cta-row" style="margin-top:12px;">
-                  <a class="btn btn-primary" href="https://wa.me/34663432481" target="_blank" rel="noopener">WhatsApp</a>
-                  <a class="btn" href="#contacto">Formulario</a>
-                </div>
-              </div>
-            </div>
+</div>
+</section>
 
-          </div>
+<footer>
+© 2026 MAC IA AGENT
+</footer>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- SISTEMA -->
-    <section class="block" id="contenido">
-      <div class="container">
-        <div class="head">
-          <h2 class="reveal">Sistema</h2>
-          <div class="hint reveal">Tecnología aplicada al crecimiento de clínicas</div>
-        </div>
-
-        <div class="cards">
-          <div class="card reveal">
-            <h3>1) Captación + respuesta inmediata</h3>
-            <p>El lead entra por web o WhatsApp. Respuesta en segundos, tono clínico y foco en conversión.</p>
-          </div>
-          <div class="card reveal">
-            <h3>2) Cualificación inteligente</h3>
-            <p>Preguntas clave para implantes. Tu equipo recibe contexto antes de atender.</p>
-          </div>
-          <div class="card reveal">
-            <h3>3) Agenda + seguimiento</h3>
-            <p>Confirmaciones, recordatorios y reactivación de indecisos. Menos fugas, más primeras visitas.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICIOS -->
-    <section class="block" id="servicios">
-      <div class="container">
-        <div class="head">
-          <h2 class="reveal">Servicios</h2>
-          <div class="hint reveal">MAC IA AGENT INTELIGENT SOLUTIONS</div>
-        </div>
-
-        <div class="cards">
-          <div class="card reveal">
-            <h3>🤖 Agente IA especializado en implantes</h3>
-            <p>FAQs, objeciones (precio/tiempos/miedo), y derivación al siguiente paso con elegancia.</p>
-          </div>
-          <div class="card reveal">
-            <h3>⚡ Automatización operativa</h3>
-            <p>CRM/email/agenda/recordatorios/seguimiento. Menos tareas manuales, más control.</p>
-          </div>
-          <div class="card reveal">
-            <h3>🎯 Landing de conversión</h3>
-            <p>Copy + estructura + CTAs para convertir leads de implantes. WhatsApp y formulario integrados.</p>
-          </div>
-          <div class="card reveal">
-            <h3>🔗 Integraciones</h3>
-            <p>n8n / Make / Zapier. Conectamos tus herramientas para que todo “fluya”.</p>
-          </div>
-          <div class="card reveal">
-            <h3>📊 Optimización por resultados</h3>
-            <p>Iteración: respuestas, embudo, seguimiento y conversiones. Mejora continua.</p>
-          </div>
-          <div class="card reveal">
-            <h3>🧩 Sistema a medida</h3>
-            <p>Empezamos por el MVP que da retorno y escalamos lo que funciona.</p>
-          </div>
-        </div>
-
-        <div class="cta-row" style="margin-top:14px;">
-          <a class="btn btn-primary" href="implantes.html">Ver landing comercial de Implantes (High-Ticket)</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUIÉNES SOMOS -->
-    <section class="block" id="quienes">
-      <div class="container">
-        <div class="head">
-          <h2 class="reveal">Quiénes somos</h2>
-          <div class="hint reveal">Tecnología + conversión</div>
-        </div>
-
-        <div class="split">
-          <div class="box reveal">
-            <h3 style="margin:0 0 8px;">MAC IA AGENT</h3>
-            <p style="margin:0;">
-              Diseñamos <b>soluciones inteligentes</b> con una obsesión: que tu clínica convierta más leads de implantes en primeras visitas.
-              No “bots por tener bots”, sino sistemas con guion, criterio y medición.
-            </p>
-            <p>
-              Unimos IA aplicada + automatización + estructura de conversión, cuidando el tono clínico y la percepción premium.
-            </p>
-          </div>
-
-          <div class="box reveal">
-            <h3 style="margin:0 0 8px;">Cómo trabajamos</h3>
-            <p style="margin:0;">
-              1) Diagnóstico → 2) Propuesta clara → 3) MVP en producción → 4) Optimización por resultados.
-            </p>
-            <p>
-              Si ya tienes herramientas (CRM/agenda), las integramos. Si no, te recomendamos lo mínimo viable y estable.
-            </p>
-            <div class="cta-row" style="margin-top:12px;">
-              <a class="btn btn-primary" href="#contacto">Solicitar auditoría</a>
-              <a class="btn btn-ghost" href="implantes.html">Implantes (High-Ticket)</a>
-              <a class="btn btn-ghost" href="https://wa.me/34663432481" target="_blank" rel="noopener">WhatsApp</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section class="block" id="contacto">
-      <div class="container">
-        <div class="head">
-          <h2 class="reveal">Contacto</h2>
-          <div class="hint reveal">Respuesta rápida</div>
-        </div>
-
-        <div class="split">
-          <div class="box reveal">
-            <h3 style="margin:0 0 8px;">Cuéntanos tu objetivo</h3>
-            <p style="margin:0;">
-              ¿Quieres más primeras visitas de implantes? ¿Menos fugas en WhatsApp? ¿Automatizar seguimiento?
-              Envíanos 3 datos y te devolvemos un plan claro.
-            </p>
-
-            <div class="cta-row" style="margin-top:14px;">
-              <a class="btn btn-primary" href="https://wa.me/34663432481" target="_blank" rel="noopener">WhatsApp: empezar ahora</a>
-              <a class="btn btn-ghost" href="implantes.html">Ver landing Implantes</a>
-              <a class="btn" href="#servicios">Ver servicios</a>
-            </div>
-
-            <p class="mono" style="margin-top:14px; color:rgba(244,247,255,.72); font-size:13px;">
-              WhatsApp: +34 663 432 481
-            </p>
-          </div>
-
-          <div class="box reveal">
-            <!-- ✅ GitHub Pages: Formspree + redirect a gracias -->
-            <form action="https://formspree.io/f/xpqjekek" method="POST">
-              <input type="hidden" name="_subject" value="Nuevo contacto — MAC IA AGENT" />
-              <input type="hidden" name="_redirect" value="https://mac-ia.es/gracias.html" />
-              <input type="text" name="_gotcha" style="display:none" />
-
-              <div class="row">
-                <div>
-                  <label for="nombre">Nombre</label>
-                  <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
-                </div>
-                <div>
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" placeholder="tu@email.com" required />
-                </div>
-              </div>
-
-              <div class="row">
-                <div>
-                  <label for="clinica">Clínica / Ciudad</label>
-                  <input id="clinica" name="clinica" type="text" placeholder="Nombre (opcional) / Ciudad" />
-                </div>
-                <div>
-                  <label for="objetivo">Objetivo</label>
-                  <input id="objetivo" name="objetivo" type="text" placeholder="Más primeras visitas / menos fugas..." />
-                </div>
-              </div>
-
-              <div>
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" placeholder="Describe brevemente tu situación actual y qué quieres mejorar..." required></textarea>
-              </div>
-
-              <div class="form-actions">
-                <button class="btn btn-primary" type="submit">Enviar</button>
-                <a class="btn btn-ghost" href="https://wa.me/34663432481" target="_blank" rel="noopener">Prefiero WhatsApp</a>
-              </div>
-
-              <p style="margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.55;">
-                Al enviar aceptas que te contactemos para responder a tu solicitud.
-              </p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="foot">
-        <div>© <span id="year"></span> <span class="mono">MAC IA AGENT</span> — Tech-Luxury · IA avanzada · Crecimiento</div>
-        <div style="display:flex; gap:10px; align-items:center;">
-          <a class="btn" href="#top">Volver arriba</a>
-          <a class="btn btn-ghost" href="implantes.html">Implantes</a>
-          <a class="btn btn-ghost" href="https://wa.me/34663432481" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="foot-links" style="margin-top:12px;">
-        <a href="privacidad.html">Política de Privacidad</a>
-        <a href="aviso-legal.html">Aviso Legal</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- WhatsApp floating -->
-  <a class="wa-float" href="https://wa.me/34663432481" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
-    <div class="wa-ico">WA</div>
-    <div class="wa-text">
-      <b>WhatsApp</b>
-      <span>Respuesta rápida</span>
-    </div>
-  </a>
-
-  <script>
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Reveal on scroll
-    const revealEls = Array.from(document.querySelectorAll(".reveal"));
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (en.isIntersecting) {
-          en.target.classList.add("in");
-          io.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => io.observe(el));
-
-    // Subtle particles (no libs)
-    const c = document.getElementById("fx");
-    const ctx = c.getContext("2d");
-    let w, h, dpr;
-
-    function resize(){
-      dpr = Math.min(2, window.devicePixelRatio || 1);
-      w = c.width = Math.floor(window.innerWidth * dpr);
-      h = c.height = Math.floor(window.innerHeight * dpr);
-      c.style.width = window.innerWidth + "px";
-      c.style.height = window.innerHeight + "px";
-    }
-    window.addEventListener("resize", resize);
-    resize();
-
-    const N = 70;
-    const pts = Array.from({length:N}).map(() => ({
-      x: Math.random()*w,
-      y: Math.random()*h,
-      r: (Math.random()*1.6 + 0.6) * dpr,
-      vx: (Math.random()-.5) * 0.18 * dpr,
-      vy: (Math.random()-.5) * 0.18 * dpr,
-      a: Math.random()*0.30 + 0.08
-    }));
-
-    function step(){
-      ctx.clearRect(0,0,w,h);
-      for (const p of pts){
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-        if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-        ctx.fillStyle = `rgba(76,201,240,${p.a})`;
-        ctx.fill();
-      }
-      for (let i=0;i<N;i++){
-        for (let j=i+1;j<N;j++){
-          const a = pts[i], b = pts[j];
-          const dx = a.x-b.x, dy = a.y-b.y;
-          const dist = Math.hypot(dx,dy);
-          if (dist < 140*dpr){
-            const alpha = (1 - dist/(140*dpr)) * 0.10;
-            ctx.strokeStyle = `rgba(189,239,255,${alpha})`;
-            ctx.lineWidth = 1*dpr;
-            ctx.beginPath();
-            ctx.moveTo(a.x,a.y);
-            ctx.lineTo(b.x,b.y);
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(step);
-    }
-    step();
-  </script>
 </body>
 </html>
